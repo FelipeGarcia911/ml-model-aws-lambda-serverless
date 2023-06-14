@@ -1,0 +1,15 @@
+{
+  "name": "ml-model-aws-lambda-serverless",
+  "version": "1.0.0",
+  "description": "Deploy your ML model in AWS Lambda using Serverless framework",
+  "main": "index.js",
+  "author": "Felipe Garcia <arfgarciama@unal.edu.co>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "deploy:dev": "serverless deploy --stage dev | tee deploy.out",
+    "deploy:prod": "serverless deploy --stage prod | tee deploy.out",
+    "deploy:staging": "serverless deploy --stage staging | tee deploy.out",
+    "remove": "serverless remove"
+  }
+}
