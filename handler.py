@@ -1,10 +1,10 @@
 import json
-
+from app.http.index import predict_regresion
 
 def hello(event, context):
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
+        "response": event
     }
 
     response = {
@@ -14,11 +14,17 @@ def hello(event, context):
 
     return response
 
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
+def predict(event, context):
+    result = predict_regresion(event)
+
+    body = {
+        "message": "Prediction executed successfully!",
+        "response": result
     }
-    """
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response

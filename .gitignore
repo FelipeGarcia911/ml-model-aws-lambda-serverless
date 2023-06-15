@@ -19,7 +19,12 @@ var/
 # Serverless directories
 .serverless
 
-# General Filess
+# General Files
+.DS_Store
+*.pyc
 *.env*
 *.out
+
+# PyCharm files
+_pycache_/
 .ipynb_checkpoints/
