@@ -22,3 +22,4 @@ var/
 # General Filess
 *.env*
 *.out
+.ipynb_checkpoints/
