@@ -24,6 +24,7 @@ var/
 *.pyc
 *.env*
 *.out
+/python
 
 # PyCharm files
 _pycache_/

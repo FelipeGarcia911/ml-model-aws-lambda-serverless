@@ -1,9 +1,11 @@
-from io import StringIO
-import pandas as pd
 import json
-import joblib
 
-model = joblib.load('./app/trained/regresion-model.joblib')
+import pandas as pd
+from tensorflow import keras
+
+model_path = "./src/http/regresion-model.keras"
+model = keras.models.load_model(model_path)
+
 column_names = ['Cylinders','Displacement','Horsepower','Weight', 'Acceleration', 'Model Year', 'USA', 'Europe', 'Japan']
 
 def predict_regresion(event):

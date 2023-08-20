@@ -11,6 +11,7 @@
     "deploy:prod": "serverless deploy --stage prod | tee deploy.out",
     "deploy:staging": "serverless deploy --stage staging | tee deploy.out",
     "deploy:remove": "serverless remove",
-    "dev:local": "serverless invoke local --path payload.json --function hello"
+    "local:hello": "serverless invoke local --path payload.json --function hello",
+    "local:predict": "serverless invoke local --path payload.json --function predict"
   }
 }
