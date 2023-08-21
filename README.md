@@ -1,2 +1,2 @@
-# ml-model-aws-lambda-serverless
-ML model deploy into AWS Lambda using Serverless Framework
+# Machine Learning Model deployed in the Cloud
+ML model deployed built into a Docker Container and then deployed into the Cloud
