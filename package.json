@@ -7,11 +7,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "deploy:dev": "serverless deploy --stage dev | tee deploy.out",
-    "deploy:prod": "serverless deploy --stage prod | tee deploy.out",
-    "deploy:staging": "serverless deploy --stage staging | tee deploy.out",
-    "deploy:remove": "serverless remove",
-    "local:hello": "serverless invoke local --path payload.json --function hello",
-    "local:predict": "serverless invoke local --path payload.json --function predict"
+    "dev": "python3 ./src/app/main.py",
+    "docker:build": "docker build --tag python-docker .",
+    "docker:run": "docker run -it -p 1000:1000 -d python-docker",
+    "init": "pip3 install -r requirements.txt"
   }
 }
