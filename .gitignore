@@ -15,9 +15,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# Serverless directories
-.serverless
+venv/
 
 # General Files
 .DS_Store
@@ -26,6 +24,7 @@ var/
 *.out
 /python
 
+node_modules/
 # PyCharm files
-_pycache_/
+*_pycache_*
 .ipynb_checkpoints/
