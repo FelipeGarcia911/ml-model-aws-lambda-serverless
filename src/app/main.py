@@ -1,8 +1,11 @@
 from flask import Flask, request
 from flask import jsonify
-from predict.main import Predict
 from gevent.pywsgi import WSGIServer
 from dotenv import dotenv_values
+
+# Routes
+from routes.regresion_mpg.main import MPGPrediction
+from routes.image_labeling.main import ImageLabeling
 
 config = dotenv_values(".env")
 
@@ -25,18 +28,37 @@ def hello():
     return jsonify(response)
 
 
-@app.route("/api/v1/predict", methods=["POST"])
-def predict():
+@app.route("/api/v1/regresion/mpg", methods=["POST"])
+def mpg():
     response = {"message": "error"}
     content_type = request.headers.get("Content-Type")
     if content_type == "application/json":
         payload = request.get_json(force=True)
-        result = Predict.getPrediction(payload)
+        result = MPGPrediction.estimate(payload)
         response = {"message": "success", "prediction": result}
     else:
         response = {"message": "Content-Type not supported!"}
 
     return jsonify(response)
+
+
+@app.route("/api/v1/image/labeling", methods=["POST"])
+def labeling():
+    response = {"message": "error"}
+    if "image" not in request.files:
+        return jsonify({"message": "No image provided"}), 400
+
+    image_file = request.files["image"]
+
+    if image_file.filename == "":
+        return jsonify({"message": "No selected file"}), 400
+
+    try:
+        result = ImageLabeling.estimate(image_file)
+        return jsonify({"message": "success", "prediction": result})
+
+    except Exception as e:
+        return jsonify({"message": f"Error converting image: {str(e)}"}), 500
 
 
 if __name__ == "__main__":
