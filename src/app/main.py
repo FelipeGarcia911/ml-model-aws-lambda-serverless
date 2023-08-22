@@ -45,15 +45,20 @@ def mpg():
 @app.route("/api/v1/image/labeling", methods=["POST"])
 def labeling():
     response = {"message": "error"}
-    content_type = request.headers.get("Content-Type")
-    if content_type == "application/json":
-        payload = request.get_json(force=True)
-        result = ImageLabeling.estimate(payload)
-        response = {"message": "success", "prediction": result}
-    else:
-        response = {"message": "Content-Type not supported!"}
+    if "image" not in request.files:
+        return jsonify({"message": "No image provided"}), 400
 
-    return jsonify(response)
+    image_file = request.files["image"]
+
+    if image_file.filename == "":
+        return jsonify({"message": "No selected file"}), 400
+
+    try:
+        result = ImageLabeling.estimate(image_file)
+        return jsonify({"message": "success", "prediction": result})
+
+    except Exception as e:
+        return jsonify({"message": f"Error converting image: {str(e)}"}), 500
 
 
 if __name__ == "__main__":
