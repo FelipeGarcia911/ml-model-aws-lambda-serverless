@@ -1,8 +1,11 @@
 from flask import Flask, request
 from flask import jsonify
-from predict.main import Predict
 from gevent.pywsgi import WSGIServer
 from dotenv import dotenv_values
+
+# Routes
+from routes.regresion_mpg.main import MPGPrediction
+from routes.image_labeling.main import ImageLabeling
 
 config = dotenv_values(".env")
 
@@ -25,13 +28,27 @@ def hello():
     return jsonify(response)
 
 
-@app.route("/api/v1/predict", methods=["POST"])
-def predict():
+@app.route("/api/v1/regresion/mpg", methods=["POST"])
+def mpg():
     response = {"message": "error"}
     content_type = request.headers.get("Content-Type")
     if content_type == "application/json":
         payload = request.get_json(force=True)
-        result = Predict.getPrediction(payload)
+        result = MPGPrediction.estimate(payload)
+        response = {"message": "success", "prediction": result}
+    else:
+        response = {"message": "Content-Type not supported!"}
+
+    return jsonify(response)
+
+
+@app.route("/api/v1/image/labeling", methods=["POST"])
+def labeling():
+    response = {"message": "error"}
+    content_type = request.headers.get("Content-Type")
+    if content_type == "application/json":
+        payload = request.get_json(force=True)
+        result = ImageLabeling.estimate(payload)
         response = {"message": "success", "prediction": result}
     else:
         response = {"message": "Content-Type not supported!"}
