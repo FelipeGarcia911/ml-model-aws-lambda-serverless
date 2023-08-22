@@ -1,6 +1,13 @@
 from flask import Flask, request
 from flask import jsonify
 from predict.main import Predict
+from gevent.pywsgi import WSGIServer
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+
+PORT = int(config.get("PORT", 10000))
+ENVIRONMENT = config.get("ENVIRONMENT", "production")
 
 
 def create_app():
@@ -33,4 +40,12 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=1000, debug=True)
+    print("Server starting at PORT={0} and MODE={1}".format(PORT, ENVIRONMENT))
+    if ENVIRONMENT == "production":
+        http_server = WSGIServer(
+            ("", PORT),
+            app,
+        )
+        http_server.serve_forever()
+    else:
+        app.run(host="0.0.0.0", port=PORT, debug=True)

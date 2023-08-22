@@ -23,6 +23,7 @@ venv/
 *.env*
 *.out
 /python
+scripts/
 
 node_modules/
 # PyCharm files

@@ -7,9 +7,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "aws:login": "sh ./scripts/aws-login.sh",
     "dev": "python3 ./src/app/main.py",
-    "docker:build": "docker build --tag python-docker .",
-    "docker:run": "docker run -it -p 1000:1000 -d python-docker",
+    "docker:build": "docker build --tag ml-model-docker .",
+    "docker:deploy": "sh ./scripts/aws-deploy.sh",
+    "docker:run": "docker run -it -p 10000:10000 -d ml-model-docker",
     "init": "pip3 install -r requirements.txt"
   }
 }
