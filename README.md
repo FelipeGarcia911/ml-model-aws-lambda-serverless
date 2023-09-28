@@ -11,9 +11,9 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 ## Instalación  
 
 1. Clona este repositorio en tu máquina local: 
-`git clone https://github.com/FelipeGarcia911/ml-model-docker`
+	`git clone https://github.com/FelipeGarcia911/ml-model-docker`
 2. Navega al directorio del proyecto: 
-`cd ml-model-docker`
+	`cd ml-model-docker`
 
 ### Configuración del Entorno Python en Windows
 Asegúrate de cumplir con los siguientes requisitos:
