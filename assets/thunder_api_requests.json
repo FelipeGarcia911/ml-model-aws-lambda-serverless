@@ -1,34 +1,34 @@
 {
     "client": "Thunder Client",
     "collectionName": "Docker Model",
-    "dateExported": "2023-10-04T19:26:31.829Z",
+    "dateExported": "2023-10-04T22:20:27.547Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "7b321476-97a7-409d-8cf6-5dbea991e41a",
-            "colId": "ceb1dd5e-381a-4f72-bee6-f62dc830d5a7",
+            "_id": "35a1dc21-257b-495d-8773-e55a89e8eac1",
+            "colId": "df4f524c-505b-479a-bfe7-1d01703a1276",
             "containerId": "",
             "name": "GET - API Call",
             "url": "localhost:10000/api/v1/hello",
             "method": "GET",
             "sortNum": 5000,
-            "created": "2023-10-04T19:24:33.778Z",
-            "modified": "2023-10-04T19:24:33.778Z",
+            "created": "2023-10-04T19:26:52.176Z",
+            "modified": "2023-10-04T19:26:52.176Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "4da2dec6-4e47-4929-9b00-89b49bbd4006",
-            "colId": "ceb1dd5e-381a-4f72-bee6-f62dc830d5a7",
+            "_id": "e2ebe022-20e8-4865-887c-8666acafccc2",
+            "colId": "df4f524c-505b-479a-bfe7-1d01703a1276",
             "containerId": "",
             "name": "GET - Regresion MPG",
             "url": "localhost:10000/api/v1/regresion/mpg",
             "method": "POST",
             "sortNum": 7500,
-            "created": "2023-10-04T19:24:33.779Z",
-            "modified": "2023-10-04T19:25:09.664Z",
+            "created": "2023-10-04T19:26:52.177Z",
+            "modified": "2023-10-04T19:26:52.177Z",
             "headers": [],
             "params": [],
             "body": {
@@ -39,15 +39,59 @@
             "tests": []
         },
         {
-            "_id": "7e804775-b88b-4bff-8911-53f41b7ce0dd",
-            "colId": "ceb1dd5e-381a-4f72-bee6-f62dc830d5a7",
+            "_id": "0bc81678-446c-43b8-84c5-14f54cadeaf3",
+            "colId": "df4f524c-505b-479a-bfe7-1d01703a1276",
             "containerId": "",
             "name": "POST - Image Labeling",
             "url": "localhost:10000/api/v1/image/labeling",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-10-04T19:24:33.777Z",
-            "modified": "2023-10-04T19:24:33.777Z",
+            "created": "2023-10-04T19:26:52.174Z",
+            "modified": "2023-10-04T19:26:52.174Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/felipegarcia/Desktop/UTEC/ml-model-docker/src/models/image-labeling/test_image.png"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "321e1603-cec8-4527-bc05-e8c494358dce",
+            "colId": "df4f524c-505b-479a-bfe7-1d01703a1276",
+            "containerId": "",
+            "name": "GET - Regresion MPG (Remote)",
+            "url": "https://ml-model-docker-sa51-dev.fl0.io/api/v1/regresion/mpg",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2023-10-04T20:01:09.262Z",
+            "modified": "2023-10-04T22:20:12.681Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\": [\n    1.483887,\n    1.765988,\n    2.234620,\n    1.418782,\n    -2.530891,\n    -1.604642,\n    0.774676,\n    -0.465148,\n    -0.495225\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "266ba3df-bdf5-4ed6-acdb-c957a72df830",
+            "colId": "df4f524c-505b-479a-bfe7-1d01703a1276",
+            "containerId": "",
+            "name": "POST - Image Labeling (Remote)",
+            "url": "https://ml-model-docker-sa51-dev.fl0.io/api/v1/image/labeling",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-04T20:01:34.459Z",
+            "modified": "2023-10-04T22:20:11.566Z",
             "headers": [],
             "params": [],
             "body": {
